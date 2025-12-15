@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": "organizer_1",
+      "email": "organizer@example.com",
+      "name": "Organizer One",
+      "role": "organizer"
+    },
+    {
+      "id": "attendee_1",
+      "email": "attendee@example.com",
+      "name": "Attendee One",
+      "role": "attendee"
+    }
+  ],
+  "events": [
+    {
+      "id": "event_1",
+      "title": "Summer Fest",
+      "description": "An awesome music festival.",
+      "date": "2026-06-12T18:00:00Z",
+      "organizerId": "organizer_1",
+      "location": "Open Air Park"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "ticket_1",
+      "eventId": "event_1",
+      "ownerId": "attendee_1",
+      "type": "general",
+      "status": "active"
+    }
+  ]
+}

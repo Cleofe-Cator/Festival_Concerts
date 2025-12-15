@@ -1,11 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/dashboard_summary_model.dart';
 import 'dashboard_remote_data_source.dart';
 
 class DashboardRemoteDataSourceImpl implements DashboardRemoteDataSource {
   final FirebaseFirestore firestore;
+  final FirebaseAuth firebaseAuth;
 
-  DashboardRemoteDataSourceImpl(this.firestore);
+  DashboardRemoteDataSourceImpl({
+    required this.firebaseAuth,
+    required this.firestore,
+  });
 
   CollectionReference get _tickets => firestore.collection('tickets');
   CollectionReference get _events => firestore.collection('events');
@@ -23,7 +28,7 @@ class DashboardRemoteDataSourceImpl implements DashboardRemoteDataSource {
           totalTicketsSold: 0,
           totalRevenue: 0.0,
           checkInCount: 0,
-          lastUpdated: DateTime.now(),
+          lastUpdated: DateTime.now(), dashboardData: null, analyticsData: null,
         );
       }
 
@@ -48,7 +53,7 @@ class DashboardRemoteDataSourceImpl implements DashboardRemoteDataSource {
         totalTicketsSold: totalTicketsSold,
         totalRevenue: totalRevenue,
         checkInCount: checkInCount,
-        lastUpdated: DateTime.now(),
+        lastUpdated: DateTime.now(), dashboardData: null, analyticsData: null,
       );
     } catch (e) {
       throw Exception('Failed to load dashboard summary: $e');
