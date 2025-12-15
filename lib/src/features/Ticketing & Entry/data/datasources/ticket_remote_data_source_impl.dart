@@ -1,12 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'ticket_remote_data_source.dart';
 import '../models/ticket_model.dart';
 import 'package:uuid/uuid.dart';
 
 class TicketRemoteDataSourceImpl implements TicketRemoteDataSource {
   final FirebaseFirestore firestore;
+  final FirebaseAuth firebaseAuth;
 
-  TicketRemoteDataSourceImpl(this.firestore);
+  TicketRemoteDataSourceImpl({
+    required this.firebaseAuth,
+    required this.firestore,
+  });
 
   CollectionReference get _tickets => firestore.collection('tickets');
   final _uuid = const Uuid();

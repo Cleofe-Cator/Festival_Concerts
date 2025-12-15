@@ -1,13 +1,18 @@
 import 'package:equatable/equatable.dart';
 
 class DashboardSummary extends Equatable {
-  final String organizerId;
-  final int totalTicketsSold;
-  final double totalRevenue;
-  final int checkInCount;
-  final DateTime lastUpdated;
+  final dynamic dashboardData;
+  final dynamic analyticsData;
+
+  final String? organizerId;
+  final int? totalTicketsSold;
+  final double? totalRevenue;
+  final int? checkInCount;
+  final DateTime? lastUpdated;
 
   const DashboardSummary({
+    required this.dashboardData,
+    required this.analyticsData,
     required this.organizerId,
     required this.totalTicketsSold,
     required this.totalRevenue,
@@ -16,6 +21,8 @@ class DashboardSummary extends Equatable {
   });
 
   DashboardSummary copyWith({
+    dynamic dashboardData,
+    dynamic analyticsData,
     String? organizerId,
     int? totalTicketsSold,
     double? totalRevenue,
@@ -23,6 +30,8 @@ class DashboardSummary extends Equatable {
     DateTime? lastUpdated,
   }) {
     return DashboardSummary(
+      dashboardData: dashboardData ?? this.dashboardData,
+      analyticsData: analyticsData ?? this.analyticsData,
       organizerId: organizerId ?? this.organizerId,
       totalTicketsSold: totalTicketsSold ?? this.totalTicketsSold,
       totalRevenue: totalRevenue ?? this.totalRevenue,
@@ -32,7 +41,13 @@ class DashboardSummary extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [organizerId, totalTicketsSold, totalRevenue, checkInCount, lastUpdated];
+  List<Object?> get props => [
+        dashboardData,
+        analyticsData,
+        organizerId,
+        totalTicketsSold,
+        totalRevenue,
+        checkInCount,
+        lastUpdated,
+      ];
 }
-

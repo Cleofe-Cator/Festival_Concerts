@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' as fb;
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/user_model.dart';
 import '../../domain/entities/user_entity.dart';
 import 'user_remote_data_source.dart';
 
 class UserRemoteDataSourceImpl implements UserRemoteDataSource {
-  final fb.FirebaseAuth firebaseAuth;
+  final FirebaseAuth firebaseAuth;
   final FirebaseFirestore firestore;
 
   UserRemoteDataSourceImpl({

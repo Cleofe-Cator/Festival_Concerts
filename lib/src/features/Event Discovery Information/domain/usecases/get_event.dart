@@ -3,10 +3,10 @@ import '../../../../core/error/failure.dart';
 import '../entities/event.dart';
 import '../repositories/event_repositories.dart';
 
-class CreateEvent {
+class GetEvents {
   final EventRepository repository;
 
-  CreateEvent(this.repository);
+  GetEvents(this.repository);
 
   Future<Either<Failure, Event>> call(Event event) async {
     // add any domain-level validation here if needed

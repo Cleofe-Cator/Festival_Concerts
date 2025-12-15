@@ -7,7 +7,9 @@ class DashboardSummaryModel extends DashboardSummary {
     required super.totalTicketsSold,
     required super.totalRevenue,
     required super.checkInCount,
-    required super.lastUpdated,
+    required super.lastUpdated, 
+    required super.dashboardData,
+    required super.analyticsData,
   });
 
   factory DashboardSummaryModel.fromMap(Map<String, dynamic> map) {
@@ -19,7 +21,7 @@ class DashboardSummaryModel extends DashboardSummary {
       lastUpdated: (map['lastUpdated'] is Timestamp)
           ? (map['lastUpdated'] as Timestamp).toDate()
           : DateTime.tryParse(map['lastUpdated']?.toString() ?? '') ??
-              DateTime.now(),
+              DateTime.now(), dashboardData: null, analyticsData: null,
     );
   }
 

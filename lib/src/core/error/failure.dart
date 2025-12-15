@@ -9,17 +9,17 @@ abstract class Failure extends Equatable {
 }
 
 class ServerFailure extends Failure {
-  ServerFailure([String message = 'Server Failure']) : super(message);
+  const ServerFailure([super.message = 'Server Failure']);
 }
 
 class NotFoundFailure extends Failure {
-  NotFoundFailure([String message = 'Not Found']) : super(message);
+  const NotFoundFailure([super.message = 'Not Found']);
 }
 
 class ValidationFailure extends Failure {
-  ValidationFailure([String message = 'Validation Failure']) : super(message);
+  const ValidationFailure([super.message = 'Validation Failure']);
 }
 
 class UnauthorizedFailure extends Failure {
-  UnauthorizedFailure([String message = 'Unauthorized']) : super(message);
+  const UnauthorizedFailure([super.message = 'Unauthorized']);
 }
